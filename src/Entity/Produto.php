@@ -33,7 +33,15 @@ class Produto
      */
     private $preco;
 
-    public function getId()
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     */
+    private $descricao;
+
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -50,7 +58,7 @@ class Produto
      * @param string $nome
      * @return Produto
      */
-    public function setNome(string $nome): ?Produto
+    public function setNome(string $nome): Produto
     {
         $this->nome = $nome;
         return $this;
@@ -68,9 +76,27 @@ class Produto
      * @param float $preco
      * @return Produto
      */
-    public function setPreco(float $preco): ?Produto
+    public function setPreco(float $preco): Produto
     {
         $this->preco = $preco;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescricao(): ?string
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * @param string $descricao
+     * @return Produto
+     */
+    public function setDescricao(string $descricao): Produto
+    {
+        $this->descricao = $descricao;
         return $this;
     }
 }
