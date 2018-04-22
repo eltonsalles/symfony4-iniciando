@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Produto;
 use App\Form\ProdutoType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -12,15 +13,16 @@ class ProdutoController extends Controller
 {
     /**
      * @Route("/produto", name="listar_produto")
+     * @Template("produto/index.html.twig")
      */
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
         $produtos = $em->getRepository(Produto::class)->findAll();
 
-        return $this->render("produto/index.html.twig", [
+        return [
             'produtos' => $produtos
-        ]);
+        ];
     }
 
     /**
