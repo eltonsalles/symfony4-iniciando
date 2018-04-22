@@ -32,7 +32,7 @@
                     <td>{{ produto.nome }}</td>
                     <td>{{ produto.preco }}</td>
                     <td>
-                        <a class="btn btn-sm btn-warning" href=""><i class="fa fa-eye"></i></a>
+                        <a class="btn btn-sm btn-warning" href="{{ path('visualizar_produto', {"id": produto.id}) }}"><i class="fa fa-eye"></i></a>
                         <a class="btn btn-sm btn-success" href="{{ path('editar_produto', {"id": produto.id}) }}"><i class="fa fa-pencil-alt"></i></a>
                         <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
                     </td>
