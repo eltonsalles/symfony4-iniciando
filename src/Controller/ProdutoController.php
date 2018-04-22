@@ -80,4 +80,21 @@ class ProdutoController extends Controller
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param $id
+     *
+     * @Route("/produto/visualizar/{id}", name="visualizar_produto")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function view(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $produto = $em->getRepository(Produto::class)->find($id);
+
+        return $this->render("produto/visualizar.html.twig", [
+            'produto' => $produto
+        ]);
+    }
 }
