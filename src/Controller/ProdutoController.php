@@ -93,7 +93,7 @@ class ProdutoController extends Controller
         $em = $this->getDoctrine()->getManager();
         $produto = $em->getRepository(Produto::class)->find($id);
 
-        return $this->render("produto/visualizar.html.twig", [
+        return $this->render("produto/view.html.twig", [
             'produto' => $produto
         ]);
     }
