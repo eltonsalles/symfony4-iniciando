@@ -3,6 +3,12 @@
 {% block title %}Listagem de Produtos{% endblock %}
 
 {% block body %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     <h1>Listando Produtos</h1>
     <hr>
     <div class="row">
