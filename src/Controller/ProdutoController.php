@@ -43,8 +43,8 @@ class ProdutoController extends Controller
             $em->persist($produto);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->set('success', 'Produto salvo com sucesso!');
-
+//            $this->get('session')->getFlashBag()->set('success', 'Produto salvo com sucesso!');
+            $this->addFlash('success', 'Produto cadastrado!');
             return $this->redirectToRoute('listar_produto');
         }
 
